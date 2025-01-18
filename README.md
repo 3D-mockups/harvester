@@ -22,7 +22,7 @@ Harvester is an enterprise-ready, easy-to-use infrastructure platform that lever
 1. **Network management:** Supports using a virtual IP (VIP) and multiple Network Interface Cards (NICs). If your VMs need to connect to the external network, create a VLAN or untagged network. 
 1. **Integration with [Rancher](https://ranchermanager.docs.rancher.com/integrations-in-rancher/harvester):** Access Harvester directly within Rancher through Rancher’s Virtualization Management page and manage your VM workloads alongside your Kubernetes clusters.
 
-The following diagram outlines a high-level architecture of Harvester:
+The following diagram outlines the high-level architecture of Harvester:
 
 ![architecture.svg](./docs/assets/architecture.svg)
 
@@ -61,7 +61,7 @@ During the installation, you can either choose to **create a new Harvester clust
    - `Install Harvester binaries only`: If you choose this option, additional setup is required after the first bootup.
 1. Choose the installation disk you want to install the Harvester cluster on and the data disk you want to store VM data on. By default, Harvester uses [GUID Partition Table (GPT)](https://en.wikipedia.org/wiki/GUID_Partition_Table) partitioning schema for both UEFI and BIOS. If you use the BIOS boot, then you will have the option to select [Master boot record (MBR)](https://en.wikipedia.org/wiki/Master_boot_record).
    ![iso-choose-disks.png](./docs/assets/iso-choose-disks.png )
-   - `Installation disk`: The disk to install the Harvester cluster on.
+   - `Installation disk`: The disk on which to install the Harvester cluster.
    - `Data disk`: The disk to store VM data on. Choosing a separate disk to store VM data is recommended.
    - `Persistent size`: If you only have one disk or use the same disk for both OS and VM data, you need to configure persistent partition size to store system packages and container images. The default and minimum persistent partition size is 150 GiB. You can specify a size like 200Gi or 153600Mi. 
 1. Configure the `HostName` of the node.
@@ -70,11 +70,11 @@ During the installation, you can either choose to **create a new Harvester clust
 1. (Optional) Configure the `DNS Servers`. Use commas as a delimiter to add more DNS servers. Leave blank to use the default DNS server.
 1. Configure the virtual IP (VIP) by selecting a `VIP Mode`. This VIP is used to access the cluster or for other nodes to join the cluster.
 ![iso-config-vip.png](./docs/assets/iso-config-vip.png)
-1. Configure the `cluster token`. This token will be used for adding other nodes to the cluster.
+1. Configure the `cluster token`. This token will be used to add other nodes to the cluster.
 1. Configure and confirm a `Password` to access the node. The default SSH user is `rancher`.
 1. Configure `NTP servers` to make sure all nodes' times are synchronized. This defaults to `0.suse.pool.ntp.org`. Use commas as a delimiter to add more NTP servers.
-1. (Optional) If you need to use an HTTP proxy to access the outside world, enter the proxy URL address here. Otherwise, leave this blank.
-1. (Optional) You can choose to import SSH keys by providing `HTTP URL`. For example, your GitHub public keys `https://github.com/<username>.keys` can be used.
+1. (Optional) If you need to use an HTTP proxy to access the outside world, enter the proxy URL address here. If not, please leave this blank.
+1. (Optional) You can choose to import SSH keys by providing an `HTTP URL`. For example, your GitHub public keys `https://github.com/<username>.keys` can be used.
 1. (Optional) If you need to customize the host with a [Harvester configuration](./harvester-configuration.md) file, enter the `HTTP URL` here.
 1. Review and confirm your installation options. After confirming the installation options, Harvester will be installed on your host. The installation may take a few minutes to complete.
 1. Once the installation is complete, your node restarts. After the restart, the Harvester console displays the management URL and status. The default URL of the web interface is `https://your-virtual-ip`. You can use `F12` to switch from the Harvester console to the Shell and type `exit` to go back to the Harvester console.
@@ -110,7 +110,7 @@ Check out this [demo](https://youtu.be/Ngsk7m6NYf4) to get a quick overview of t
 
 
 ## Source code
-Harvester is 100% open-source software. The project source code is spread across a number of repos:
+Harvester is 100% open-source software. The project source code is spread across a number of reports:
 
 | Name                         | Repo Address                                               |
 |:-----------------------------|:-----------------------------------------------------------|
